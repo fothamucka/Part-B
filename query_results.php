@@ -82,43 +82,36 @@
 		  AND	winery.region_id = region.region_id
 		  AND	wine_variety.variety_id = grape_variety.variety_id";
 						
-	if (isset($wineName) && $wineName != "All"){
-		$query .= " AND wine_name = '{$wineName}'";
-	}
+	if (isset($wineName) && $wineName != "All")
+		$query .= " AND wine_name = \"$wineName\"";
 
-	if (isset($wineryName) && $wineryName != "All"){
-		$query .= " AND winery_name = '{$wineryName}'";
-	}
+	if (isset($wineryName) && $wineryName != "All")
+		$query .= " AND winery_name = \"$wineryName\"";
 					
-	if (isset($regionName) && $regionName != "All"){
-		$query .= " AND region_name = '{$regionName}'";					
-	}	
-	if (isset($varietyName) && $varietyName != "All"){
-		$query .= " AND variety = '{$varietyName}'";
-	}
+	if (isset($regionName) && $regionName != "All")
+		$query .= " AND region_name = \"$regionName\"";					
 	
-	if (isset($startYear)){
-		$query .= " AND year >= '{$startYear}'";
-	}
+	if (isset($varietyName) && $varietyName != "All")
+		$query .= " AND variety = \"$varietyName\"";
 	
-	if (isset($endYear)){
-		$query .= " AND year <= '{$endYear}'";
-        }
-	if (isset($minStock)){
-		$query .= " AND on_hand >= '{$minStock}'";
-	}
+	if (isset($startYear))
+		$query .= " AND year >= \"$startYear\"";
 	
-	if (isset($minOrder)){
-		$query .= " AND qty >= '{$minOrder}'";
-	}
+	if (isset($endYear))
+		$query .= " AND year <= \"$endYear\"";
+
+	if (isset($minStock))
+		$query .= " AND on_hand >= \"$minStock\"";
 	
-	if (isset($minPrice)){
-		$query .= " AND cost >= '{$minPrice}'";
-	}
+	if (isset($minOrder))
+		$query .= " AND qty >= \"$minOrder\"";
 	
-	if (isset($maxPrice)){
-		$query .= " AND cost <= '{$maxPrice}'";
-	}
+	
+	if (isset($minPrice))
+		$query .= " AND cost >= \"$minPrice\"";
+	
+	if (isset($maxPrice))
+		$query .= " AND cost <= \"$maxPrice\"";
 	
 	displayWines($connection, $query, $wineName, $wineryName, $regionName, $varietyName, $startYear, $endYear, $minStock, $minOrder, $minPrice, $maxPrice);
 		
