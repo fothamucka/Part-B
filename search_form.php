@@ -14,7 +14,7 @@
 		"<br>Enter a winery : " .
 		"<input type=\"text\" name=\"wineryName\">\n";
 	
-		$connection = mysql_connect("yallara.cs.rmit.edu.au:54561", "winestore", "password");
+		$connection = mysql_connect("yallara.cs.rmit.edu.au:54561", "root", "password");
 		mysql_select_db("winestore", $connection);
 
 		echo "\n";	
